@@ -1,4 +1,4 @@
-name: oop1
+name: oop2
 recipe: lamp
 config:
   database: mariadb
