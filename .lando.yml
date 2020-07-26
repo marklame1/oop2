@@ -1,12 +1,28 @@
 name: oop2
 recipe: lamp
-config:
-  database: mariadb
-  php: '7.3'
-  xdebug: true
-services:
+
+proxy:
+  appserver:
+    - oop2.lndo.site
   pma:
-   type: phpmyadmin
-   hosts:
-     - database      
-       
+    - phpmyadmin.lndo.site
+
+config:
+  php: '7.3'
+  via: apache
+  webroot: .
+  xdebug: true
+
+services:
+  appserver:
+    ports:
+      - '8080:80'
+  database:
+    type: mariadb      
+    creds:
+      user: lamp
+      password: lamp
+      database: lamp
+  pma:
+    type: phpmyadmin      
+

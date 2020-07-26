@@ -1,0 +1,12 @@
+name: oop2
+recipe: lamp
+config:
+  xdebug: true      
+  database: mariadb
+  php: '7.3'
+services:
+  pma:
+   type: phpmyadmin
+   hosts:
+     - database      
+       
